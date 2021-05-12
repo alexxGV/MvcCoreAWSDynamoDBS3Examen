@@ -1,0 +1,25 @@
+version: 0.2
+ 
+phases:
+  install:
+    runtime-versions:
+        dotnet: 3.1
+    commands:
+      - echo "Empezamos la instalacion de Dotnet"
+  pre_build:
+    commands:
+      - echo "Empezamos la fase de compilacion"
+      - dotnet restore MvcCoreAWSDynamoDBS3/MvcCoreAWSDynamoDBS3.csproj
+  build:
+    commands:
+      - echo "Realizamos un build del proyecto"
+      - dotnet build MvcCoreAWSDynamoDBS3/MvcCoreAWSDynamoDBS3.csproj
+  post_build:
+    commands:
+      - echo "Empezamos publicacion"
+      - dotnet publish -c realease -o ./build_output MvcCoreAWSDynamoDBS3/MvcCoreAWSDynamoDBS3.csproj
+
+artifacts:
+  discard-paths: yes
+  files:
+    - ./build_output/**/*
