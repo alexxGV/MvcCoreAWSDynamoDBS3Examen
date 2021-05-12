@@ -1,0 +1,97 @@
+﻿@model MvcCoreAWSDynamoDBS3.Models.Usuario
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaAlta" class="control-label"></label>
+                <input asp-for="FechaAlta" class="form-control" />
+                <span asp-validation-for="FechaAlta" class="text-danger"></span>
+            </div>
+
+            <hr />
+            <p>FOTOS</p>
+            <hr />
+
+            <hr />
+            <p>Foto 1</p>
+            <div class="form-group">
+                <label class="control-label">Titulo</label>
+                <input type="text" name="titulo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre Imagen</label>
+                <input type="text" name="imagen" class="form-control" />
+            </div>
+
+            <label>Seleccione una foto: </label>
+            <input type="file" name="file1" class="form-control-file" />
+            
+            @* ============================================================ *@
+            <hr />
+            <p>Foto 2</p>
+            <div class="form-group">
+                <label class="control-label">Titulo</label>
+                <input type="text" name="titulo2" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre Imagen</label>
+                <input type="text" name="imagen2" class="form-control" />
+            </div>
+
+            <label>Seleccione una foto: </label>
+            <input type="file" name="file2" class="form-control-file" />
+
+            @* ============================================================ *@
+            <hr />
+            <p>Foto 3</p>
+            <div class="form-group">
+                <label class="control-label">Titulo</label>
+                <input type="text" name="titulo3" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre Imagen</label>
+                <input type="text" name="imagen3" class="form-control" />
+            </div>
+
+            <label>Seleccione una foto: </label>
+            <input type="file" name="file3" class="form-control-file" />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
